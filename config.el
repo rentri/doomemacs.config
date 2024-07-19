@@ -3,8 +3,33 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+;; Define custom faces for coloring the ASCII art
+(defface ascii-art-face-1
+  '((t :foreground "#B7D5D4" :weight bold))
+  "Face for ASCII art line 1.")
+
+(defface ascii-art-face-2
+  '((t :foreground "#B7D5D4" :weight bold))
+  "Face for ASCII art line 2.")
+
+(defface ascii-art-face-3
+  '((t :foreground "#B7D5D4" :weight bold))
+  "Face for ASCII art line 3.")
+
+(defface ascii-art-face-4
+  '((t :foreground "#B7D5D4" :weight bold))
+  "Face for ASCII art line 4.")
+
+(defface ascii-art-face-5
+  '((t :foreground "#B7D5D4" :weight bold))
+  "Face for ASCII art line 5.")
+
+(defface ascii-art-face-6
+  '((t :foreground "#B7D5D4" :weight bold))
+  "Face for ASCII art line 6.")
+
 (defun my-weebery-is-always-greater ()
-  (let* ((banner '("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣯⣾⣿⡿⢟⣿⠛⠉⠩⠁⠀⠀⡟⠁⠀⣀⠀⠀⠈⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠈⠢⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+  (let* ((banner '(		   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣯⣾⣿⡿⢟⣿⠛⠉⠩⠁⠀⠀⡟⠁⠀⣀⠀⠀⠈⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠈⠢⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
 				   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣾⡿⠟⠁⣐⡮⠁⠀⡐⠀⠀⠀⠀⢰⣅⠈⠀⠒⠄⡀⠀⠀⠀⠙⠿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠐⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
 				   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣰⡿⠋⠀⠀⠀⡬⠁⠀⡐⠀⠀⠀⠀⠀⠀⠟⢂⠀⠀⠀⠈⠂⡀⠀⠀⠀⠈⠙⢿⣿⣻⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠈⢳⡀⠀⠀⠀⠀⠀⠀⠀⠀"
 				   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣲⠏⠀⠀⠀⠠⡙⠀⠀⢀⠁⠀⠀⠀⠀⠀⠀⠐⡈⠑⡀⠀⠀⠀⠈⠢⡀⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⢗⠀⠀⠀⠀⠀⠀⠀⠀"
@@ -37,19 +62,24 @@
 				   "⢈⢠⣿⣽⣻⣿⢿⣯⣿⣽⣯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣵⣫⡽⣷⠀⢀⣠⣾⡿⣯⣿⣾⣿⣿⣟⣿⣿⡄"
 				   "⠀⣼⣷⣻⣿⣾⣿⣯⣿⣯⣿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⡽⣧⠛⠿⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿"
 				   "⢠⣿⡽⣟⣷⣿⣿⣿⣷⣿⡿⣿⣯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣯⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣬⣟⣯⣿⣿⣿⣿⣿⣿⣿⣿"
-												"EMACS"))
-         (longest-line (apply #'max (mapcar #'length banner))))
-    (put-text-property
-     (point)
-     (dolist (line banner (point))
-       (insert (+doom-dashboard--center
-                +doom-dashboard--width
-                (concat line (make-string (max 0 (- longest-line (length line))) 32)))
-               "\n"))
-     'face 'doom-dashboard-banner)))
+				   "EMACS"
+                   ))
+         (longest-line (apply #'max (mapcar #'length banner)))
+         (faces [ascii-art-face-1
+                 ascii-art-face-2
+                 ascii-art-face-3
+                 ascii-art-face-4
+                 ascii-art-face-5
+                 ascii-art-face-6]))
+    (dolist (line banner)
+      (let ((face (aref faces (mod (cl-position line banner) (length faces)))))
+        (insert (propertize (+doom-dashboard--center
+                             +doom-dashboard--width
+                             (concat line (make-string (max 0 (- longest-line (length line))) 32)))
+                            'face face)
+                "\n")))))
 
 (setq +doom-dashboard-ascii-banner-fn #'my-weebery-is-always-greater)
-
 
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
@@ -161,3 +191,9 @@
 (when (display-graphic-p)
   (add-to-list 'default-frame-alist '(undecorated . t)))
 
+;; transparency
+(set-frame-parameter nil 'alpha-background 90)
+
+(add-to-list 'default-frame-alist '(alpha-background . 88))
+;;(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+;;(add-to-list 'default-frame-alist '(alpha . (85 . 50)))

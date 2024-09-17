@@ -111,7 +111,10 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;;(setq doom-theme 'doom-horizon)
-(setq doom-theme 'doom-ir-black)
+
+;;(setq doom-theme 'doom-ir-black)
+(setq doom-theme 'doom-monokai-ristretto)
+
 
 ;; Add the directory containing your custom themes to the `custom-theme-load-path`
 ;;(add-to-list 'custom-theme-load-path (expand-file-name "themes" "~/.config/doom/"))
@@ -192,8 +195,11 @@
   (add-to-list 'default-frame-alist '(undecorated . t)))
 
 ;; transparency
-(set-frame-parameter nil 'alpha-background 90)
+(set-frame-parameter nil 'alpha-background 80)
 
-(add-to-list 'default-frame-alist '(alpha-background . 88))
+(add-to-list 'default-frame-alist '(alpha-background . 95))
 ;;(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
 ;;(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
+
+;;(global-set-key (kbd "C-c e") 'eshell)
+(global-set-key (kbd "C-c e") 'term)
